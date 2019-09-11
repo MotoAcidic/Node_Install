@@ -17,6 +17,9 @@ sudo apt-get install libzmq3-dev -y
 sudo apt-get install libminiupnpc-dev -y
 sudo apt-get install libgmp3-dev libevent-dev bsdmainutils libboost-all-dev openssl -y
 sudo apt-get install libssl1.0-dev -y
+sudo apt-get install -y autoconf g++ make openssl libssl-dev libcurl4-openssl-dev -y
+sudo apt-get install -y libcurl4-openssl-dev pkg-config -y
+sudo apt-get install -y libsasl2-dev -y
 clear
 
 echo -e "Checking if swap space is needed."
