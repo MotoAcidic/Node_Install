@@ -9,6 +9,7 @@ TITLE="Node Update Setup"
 MENU="Choose one of the following coins to Update:"
 
 OPTIONS=(1 "Altbet"
+		 2 "Privix"
 		 0 "Exit Script"
 )
 
@@ -29,6 +30,11 @@ case $CHOICE in
 
         1)	# Altbet
 		cd Altbet
+		bash update.sh
+        ;; 
+
+		2)	# Privix
+		cd Privix
 		bash update.sh
         ;; 
 esac

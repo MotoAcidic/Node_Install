@@ -5,12 +5,12 @@
 # Must use exact repo name: Example github https://github.com/altbet/abet Example repo name: altbet    #
 ########################################################################################################
 
-RPC_PORT=9322
-COIN_PORT=8322
-COIN_NAME='Altbet'
-REPO_NAME='abet'
-COIN_DAEMON='altbetd'
-COIN_CLI='altbet-cli'
+RPC_PORT=7789
+COIN_PORT=7788
+COIN_NAME='Privix'
+REPO_NAME='privix-core'
+COIN_DAEMON='privixd'
+COIN_CLI='privix-cli'
 GITHUB=https://github.com/privix/privix-core
 
 ########################################

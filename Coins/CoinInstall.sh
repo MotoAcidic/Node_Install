@@ -9,6 +9,7 @@ TITLE="Node Install Setup"
 MENU="Choose one of the following coins to install:"
 
 OPTIONS=(1 "Altbet"
+		 2 "Privix"
 		 0 "Exit Script"
 )
 
@@ -29,6 +30,10 @@ case $CHOICE in
 
         1)	# Altbet
 		cd Altbet
+		bash install.sh
+        ;; 
+		2)	# Privix
+		cd Privix
 		bash install.sh
         ;; 
 esac
