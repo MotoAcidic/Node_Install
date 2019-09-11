@@ -50,20 +50,22 @@ cd
   echo -e "Enter your ${RED}$COIN_NAME Masternode Private Key${NC}. Leave it blank to generate a new ${RED}Masternode Private Key${NC} for you:"
   read -e COINKEY
   if [[ -z "$COINKEY" ]]; then
-  $DAEMON -daemon
+  cd $REPO_NAME
+  $COIN_DAEMON -daemon
   sleep 30
-  if [ -z "$(ps axo cmd:100 | grep $DAEMON)" ]; then
+  if [ -z "$(ps axo cmd:100 | grep $COIN_DAEMON)" ]; then
    echo -e "${RED}$COIN_NAME server couldn not start. Check /var/log/syslog for errors.{$NC}"
    exit 1
   fi
-  COINKEY=$($CLI masternode genkey)
+  COINKEY=$($COIN_CLI masternode genkey)
   if [ "$?" -gt "0" ];
     then
     echo -e "${RED}Wallet not fully loaded. Let us wait and try again to generate the Private Key${NC}"
     sleep 30
-    COINKEY=$($CLI masternode genkey)
+    COINKEY=$($COIN_CLI masternode genkey)
   fi
-  $CLI stop
+  $COIN_CLI stop
+  cd
 fi
 clear
 
@@ -94,6 +96,7 @@ clear
 ##################
 # Run the daemon #
 ##################
-$DAEMON
+cd $REPO_NAME
+$COIN_DAEMON
 
-watch $CLI getinfo
+watch $COIN_CLI getinfo

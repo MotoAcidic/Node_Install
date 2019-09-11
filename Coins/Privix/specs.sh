@@ -11,15 +11,15 @@ COIN_NAME='Altbet'
 REPO_NAME='abet'
 COIN_DAEMON='altbetd'
 COIN_CLI='altbet-cli'
-GITHUB=https://github.com/altbet/abet
+GITHUB=https://github.com/privix/privix-core
 
 ########################################
 # DO NOT CHANGE BELOW STATIC VARIABLES #
 ########################################
 
 COIN_PATH=/root/.$REPO_NAME
-DAEMON=$REPO_NAME/src/$COIN_DAEMON
-CLI=$REPO_NAME/src/$COIN_CLI
+DAEMON_PATH=$REPO_NAME/src/$COIN_DAEMON
+CLI_PATH=$REPO_NAME/src/$COIN_CLI
 
 DEPENDS_PATH="Node_Install/Depends/"
 DEPENDS_SCRIPT="install.sh"
