@@ -43,6 +43,7 @@ echo VPS Server prerequisites installed.
 ####################
 cd
 git clone $GITHUB
+sudo chmod -R 755 $REPO_NAME
 cd $REPO_NAME
 ./autogen.sh
 ./configure --with-incompatible-bdb --disable-tests --with-gui=no
