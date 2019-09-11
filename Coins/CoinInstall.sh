@@ -8,8 +8,7 @@ BACKTITLE="Node Install Setup Wizard"
 TITLE="Node Install Setup"
 MENU="Choose one of the following coins to install:"
 
-OPTIONS=(1 "Install Fresh Node"
-		 2 "Update Existing Node"
+OPTIONS=(1 "Altbet"
 		 0 "Exit Script"
 )
 
@@ -28,13 +27,8 @@ case $CHOICE in
 		exit	
 		;;
 
-        1)	# Fresh Install
-		cd Coins
-		bash CoinInstall.sh
+        1)	# Altbet
+		cd Altbet
+		bash install.sh
         ;; 
-
-		2)	# Update Node
-		cd Coins
-		bash CoinUpdate.sh
-        ;;
 esac

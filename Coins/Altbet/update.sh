@@ -1,32 +1,34 @@
 #!/bin/bash
 
+########################################################################################################
+# COPY THIS FILE AND CHANGE ONLY THE SPECS BELOW FOR YOUR COIN                                         #
+# Must use exact repo name: Example github https://github.com/altbet/abet Example repo name: altbet    #
+########################################################################################################
+RPC_PORT=9322
+COIN_PORT=8322
+COIN_NAME='Altbet'
+REPO_NAME='abet'
+COIN_DAEMON='altbetd'
+COIN_CLI='altbet-cli'
+GITHUB=https://github.com/altbet/abet
+
 ###############
 # Dont Change #
 ###############
-DEPENDS_PATH="Node_Install/Depends/"
+DEPENDS_PATH="/Node_Install/Depends/"
 DEPENDS_SCRIPT="install.sh"
 EXTIP=`curl -s4 icanhazip.com`
 RPCUSER=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 RPCPASSWORD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
-
-###############
-# Colors Keys #
-###############
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-NC='\033[0m' # No Color
-
-############################
-# Bring in the coins specs #
-############################
-source ./specs.sh
+COIN_PATH=.$REPO_NAME/
 
 ###################
 # Install Depends #
 ###################
+# bash "$scriptPath/$scriptName"
 cd
-cd $DEPENDS_PATH
+cd Node_Install
+cd Depends
 bash install.sh
 clear
 echo VPS Server prerequisites installed.
@@ -59,53 +61,45 @@ cd
   echo -e "Enter your ${RED}$COIN_NAME Masternode Private Key${NC}. Leave it blank to generate a new ${RED}Masternode Private Key${NC} for you:"
   read -e COINKEY
   if [[ -z "$COINKEY" ]]; then
-  cd $REPO_NAME
-  $COIN_DAEMON -daemon
+  $COIN_PATH$COIN_DAEMON -daemon
   sleep 30
   if [ -z "$(ps axo cmd:100 | grep $COIN_DAEMON)" ]; then
    echo -e "${RED}$COIN_NAME server couldn not start. Check /var/log/syslog for errors.{$NC}"
    exit 1
   fi
-  COINKEY=$($COIN_CLI masternode genkey)
+  COINKEY=$($COIN_PATH$COIN_CLI masternode genkey)
   if [ "$?" -gt "0" ];
     then
     echo -e "${RED}Wallet not fully loaded. Let us wait and try again to generate the Private Key${NC}"
     sleep 30
-    COINKEY=$($COIN_CLI masternode genkey)
+    COINKEY=$($COIN_PATH$COIN_CLI masternode genkey)
   fi
-  $COIN_CLI stop
-  cd
+  $COIN_PATH$COIN_CLI stop
 fi
 clear
 
 ##########################
 # Create the Config file #
 ##########################
-mkdir $COIN_PATH/ && touch $COIN_PATH/$REPO_NAME.conf
-cat << EOF > $COIN_PATH/$REPO_NAME.conf
-
- listen=1
- server=1
- daemon=1
- staking=0
- rpcuser=testuser
- rpcpassword=testpassword
- rpcallowip=127.0.0.1
- rpcbind=127.0.0.1
- maxconnections=24
- masternode=1
- masternodeprivkey=$COINKEY
- bind=$EXTIP
- externalip=$EXTIP
- masternodeaddr=$EXTIP:$COIN_PORT
-
-EOF
-clear
+mkdir $COIN_PATH
+echo listen=1 > $COIN_PATH/$REPO_NAME.conf
+echo server=1 >> $COIN_PATH/$REPO_NAME.conf
+echo daemon=1 >> $COIN_PATH/$REPO_NAME.conf
+echo staking=0 >> $COIN_PATH/$REPO_NAME.conf
+echo rpcuser=testuser >> $COIN_PATH/$REPO_NAME.conf
+echo rpcpassword=testpassword >> $COIN_PATH/$REPO_NAME.conf
+echo rpcallowip=127.0.0.1 >> $COIN_PATH/$REPO_NAME.conf
+echo rpcbind=127.0.0.1 >> $COIN_PATH/$REPO_NAME.conf
+echo maxconnections=24 >> $COIN_PATH/$REPO_NAME.conf
+echo masternode=1 >> $COIN_PATH/$REPO_NAME.conf
+echo masternodeprivkey=$COINKEY >> $COIN_PATH/$REPO_NAME.conf
+echo bind=$EXTIP >> $COIN_PATH/$REPO_NAME.conf
+echo externalip=$EXTIP >> $COIN_PATH/$REPO_NAME.conf
+echo masternodeaddr=$EXTIP:$COIN_PORT >> $COIN_PATH/$REPO_NAME.conf
 
 ##################
 # Run the daemon #
 ##################
-cd $REPO_NAME
 $COIN_DAEMON
 
-watch $COIN_CLI getinfo
+watch $COIN_PATH$COIN_CLI
