@@ -1,6 +1,3 @@
-## Node Install 
-This script will let you setup your own VPN server in no more than a minute, even if you haven't used configured a vpn before. It has been designed to be as unobtrusive and universal as possible.
-
 ### Installation
 As a warning this will take a good amount of time since you will be compiling your own daemon and not using the provided one by the project.
 Run the script and follow the assistant for the coin you wish to install:
