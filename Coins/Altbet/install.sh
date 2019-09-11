@@ -10,7 +10,7 @@ COIN_NAME='Altbet'
 REPO_NAME='altbet'
 COIN_DAEMON='altbetd'
 COIN_CLI='altbet-cli'
-GITHUB='https://github.com/altbet/abet'
+GITHUB=https://github.com/altbet/abet
 
 ###############
 # Dont Change #
