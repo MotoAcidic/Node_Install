@@ -7,6 +7,7 @@ sudo apt update -y
 sudo apt upgrade -y
 sudo apt install build-essential libtool autotools-dev automake pkg-config bsdmainutils curl git -y
 sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler -y
+sudo apt update && apt install build-essential checkinstall zlib1g-dev libtemplate-perl -y
 sudo apt-get install software-properties-common -y
 sudo add-apt-repository ppa:bitcoin/bitcoin -y
 sudo apt-get update -y
