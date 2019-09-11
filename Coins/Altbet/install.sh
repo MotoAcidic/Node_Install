@@ -15,7 +15,8 @@ GITHUB=https://github.com/altbet/abet
 ###############
 # Dont Change #
 ###############
-DEPENDS="/Node_Install/Depends/install.sh"
+DEPENDS_PATH="/Node_Install/Depends/"
+DEPENDS_SCRIPT="install.sh"
 EXTIP=`curl -s4 icanhazip.com`
 RPCUSER=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 RPCPASSWORD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
@@ -24,7 +25,9 @@ COIN_PATH=.$REPO_NAME/
 ###################
 # Install Depends #
 ###################
-bash "$DEPENDS"
+# bash "$scriptPath/$scriptName"
+cd
+bash /Node_Install/Depends/install.sh
 clear
 echo VPS Server prerequisites installed.
 
