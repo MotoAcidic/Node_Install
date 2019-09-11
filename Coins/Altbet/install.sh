@@ -27,7 +27,9 @@ COIN_PATH=.$REPO_NAME/
 ###################
 # bash "$scriptPath/$scriptName"
 cd
-bash /Node_Install/Depends/install.sh
+cd Node_Install
+cd Depends
+bash install.sh
 clear
 echo VPS Server prerequisites installed.
 
