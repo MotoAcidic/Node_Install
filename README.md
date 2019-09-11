@@ -14,7 +14,7 @@ cd Node_Install
 ```
 
 ```
-bash Install.sh
+bash install.sh
 ```
 
 ### All documents
