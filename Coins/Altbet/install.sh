@@ -51,7 +51,7 @@ git clone $GITHUB
 sudo chmod -R 755 $REPO_NAME
 cd $REPO_NAME
 ./autogen.sh
-./configure --disable-gui-tests --disable-shared --disable-tests --disable-bench --with-gui=qt5 
+./configure --disable-gui-tests --disable-shared --disable-tests --disable-bench --with-unsupported-ssl --with-libressl --with-gui=qt5
 make
 cd
 
