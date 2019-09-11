@@ -41,6 +41,7 @@ echo VPS Server prerequisites installed.
 ####################
 # Compile the Coin #
 ####################
+cd
 git clone $GITHUB
 cd $REPO_NAME
 ./autogen.sh
