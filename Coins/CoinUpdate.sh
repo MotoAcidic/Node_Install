@@ -29,6 +29,6 @@ case $CHOICE in
 
         1)	# Altbet
 		cd Altbet
-		bash Update.sh
+		bash update.sh
         ;; 
 esac
