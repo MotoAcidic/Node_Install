@@ -1,1 +1,29 @@
-Node_Install
+## Node Install 
+This script will let you setup your own VPN server in no more than a minute, even if you haven't used configured a vpn before. It has been designed to be as unobtrusive and universal as possible.
+
+### Installation
+Run the script and follow the assistant for the coin you wish to install:
+
+```
+git clone https://github.com/MotoAcidic/Node_Install.git
+```
+
+```
+cd Node_Install
+```
+
+```
+bash Install.sh
+```
+
+### All documents
+All guides and help documents can be found here: [Documentation](https://github.com/MotoAcidic/Node_Install/Docs/)
+
+**Have fun, this is crypto after all!**
+
+```
+BTC  1MaxQQxJjnrxxfVvPncb2wsVpTKQu1drH7
+```
+
+Feel free to use my reflink to signup and receive a bonus w/ vultr:
+<a href="https://www.vultr.com/?ref=6903922"><img src="https://www.vultr.com/media/banner_2.png" width="468" height="60"></a>
