@@ -4,14 +4,12 @@
 HEIGHT=15
 WIDTH=40
 CHOICE_HEIGHT=6
-BACKTITLE="Node Install Setup Wizard"
-TITLE="Node Install Setup"
+BACKTITLE="Validator Setup Wizard"
+TITLE="Validator Install Setup"
 MENU="Choose one of the following coins to install:"
 
-OPTIONS=(1 "Install Fresh Master Node"
-		 2 "Update Existing Master Node"
-		 3 "Install Fresh Validator"
-		 0 "Exit Script"
+OPTIONS=(1 "Cosmos"
+		 0 "Exit"
 )
 
 
@@ -29,13 +27,9 @@ case $CHOICE in
 		exit	
 		;;
 
-        1)	# Fresh Install
-		cd Coins
-		bash CoinInstall.sh
+        1)	# Cosmos
+		cd Cosmos
+		bash install.sh
         ;; 
 
-		2)	# Update Node
-		cd Coins
-		bash CoinUpdate.sh
-        ;;
 esac

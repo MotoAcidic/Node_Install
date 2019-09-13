@@ -35,5 +35,5 @@ case $CHOICE in
 		2)	# Privix
 		cd Privix
 		bash install.sh
-        ;; 
+        ;;
 esac
