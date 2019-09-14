@@ -4,11 +4,12 @@
 HEIGHT=15
 WIDTH=40
 CHOICE_HEIGHT=6
-BACKTITLE="Validator Setup Wizard"
-TITLE="Validator Install Setup"
+BACKTITLE="Cosmos Setup Wizard"
+TITLE="Cosmos Install Setup"
 MENU="Choose one of the following coins to install:"
 
-OPTIONS=(1 "Cosmos"
+OPTIONS=(1 "Cosmos Full Node"
+		 2 "Cosmos Validator"
 		 0 "Exit"
 )
 
@@ -29,7 +30,7 @@ case $CHOICE in
 
         1)	# Cosmos
 		cd Cosmos
-		bash install.sh
+		bash MainNetFullNode.sh
         ;; 
 
 esac

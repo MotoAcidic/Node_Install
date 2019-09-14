@@ -5,12 +5,12 @@
 # Must use exact repo name: Example github https://github.com/altbet/abet Example repo name: altbet    #
 ########################################################################################################
 
-RPC_PORT=9322
+RPC_PORT=26657
 COIN_PORT=8322
 COIN_NAME='Cosmos'
 REPO_NAME='gaia'
 COIN_DAEMON='gaiad'
-COIN_CLI='gaia-cli'
+COIN_CLI='gaiacli'
 GITHUB=https://github.com/cosmos/gaia
 
 ########################################

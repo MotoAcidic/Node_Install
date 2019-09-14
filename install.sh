@@ -10,7 +10,7 @@ MENU="Choose one of the following coins to install:"
 
 OPTIONS=(1 "Install Fresh Master Node"
 		 2 "Update Existing Master Node"
-		 3 "Install Fresh Validator"
+		 3 "Install Cosmos"
 		 0 "Exit Script"
 )
 
@@ -37,5 +37,10 @@ case $CHOICE in
 		2)	# Update Node
 		cd Coins
 		bash CoinUpdate.sh
+        ;;
+
+		2)	# Cosmos Install
+		cd Coins
+		bash CosmosInstall.sh
         ;;
 esac

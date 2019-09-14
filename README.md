@@ -16,7 +16,7 @@ bash install.sh
 
 ### All documents
 All guides and help documents can be found here: [Documentation](https://github.com/MotoAcidic/Node_Install/tree/master/Docs)
-
+All Supported projects can be found in the Documentation folder as well.
 **Have fun, this is crypto after all!**
 
 ```
