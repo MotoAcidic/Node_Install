@@ -57,3 +57,9 @@ curl https://raw.githubusercontent.com/cosmos/launch/master/genesis.json > $HOME
 # Start the daemon to sync the full node #
 ##########################################
 gaiad start --log_level="*:info"
+
+##########################
+# Head back to selection #
+##########################
+cd 
+bash Node_Install/Coins/CosmosInstall.sh
