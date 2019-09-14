@@ -1,4 +1,4 @@
-![Cosmos Logo](https://cosmos.network/images/logos/cosmos-logo-white.png)
+![Cosmos Logo](https://github.com/cosmos/gaia/raw/master/docs/cosmos-hub-image.jpg)
 
 # Cosmos Quick Documentation
 
