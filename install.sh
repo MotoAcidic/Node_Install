@@ -30,17 +30,17 @@ case $CHOICE in
 		;;
 
         1)	# Fresh Install
-		cd Coins
+		cd Scripts
 		bash CoinInstall.sh
         ;; 
 
 		2)	# Update Node
-		cd Coins
+		cd Scripts
 		bash CoinUpdate.sh
         ;;
 
 		2)	# Cosmos Install
-		cd Coins
+		cd Scripts
 		bash CosmosInstall.sh
         ;;
 esac
