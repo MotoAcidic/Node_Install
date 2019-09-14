@@ -1,3 +1,4 @@
+
 ![Cosmos Logo](https://github.com/cosmos/gaia/raw/master/docs/cosmos-hub-image.jpg)
 
 # Cosmos Quick Documentation
@@ -27,7 +28,7 @@ Seed nodes
 - `6be0856f6365559fdc2e9e97a07d609f754632b0@cosmos-cosmoshub-2-seed.nodes.polychainlabs.com:26656`
 ```
 
-For lines ~117–118 persistent_peers = "":
+For lines ~117â€“118 persistent_peers = "":
 ```
 persistent_peers = "89e4b72625c0a13d6f62e3cd9d40bfc444cbfa77@34.65.6.52:26656"
 ```
