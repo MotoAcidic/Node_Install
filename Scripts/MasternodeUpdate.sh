@@ -31,12 +31,12 @@ case $CHOICE in
         1)	# Altbet
 		cd ..
 		cd Coins/Altbet
-		bash update.sh
+		bash MasternodeUpdate.sh
         ;; 
 
 		2)	# Privix
 		cd ..
 		cd Coins/Privix
-		bash update.sh
+		bash MasternodeUpdate.sh
         ;; 
 esac
