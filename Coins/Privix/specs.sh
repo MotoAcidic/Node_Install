@@ -11,6 +11,7 @@ COIN_NAME='Privix'
 REPO_NAME='privix-core'
 COIN_DAEMON='privixd'
 COIN_CLI='privix-cli'
+COIN_QT='privix-qt'
 GITHUB=https://github.com/privix/privix-core
 
 ########################################

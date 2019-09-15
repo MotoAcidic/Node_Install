@@ -18,7 +18,7 @@ source ./specs.sh
 ###################
 cd
 cd $DEPENDS_PATH
-bash install.sh
+bash LinuxDepends.sh
 clear
 echo VPS Server prerequisites installed.
 

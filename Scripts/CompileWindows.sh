@@ -8,10 +8,8 @@ BACKTITLE="Node Install Setup Wizard"
 TITLE="Node Install Setup"
 MENU="Choose one of the following coins to install:"
 
-OPTIONS=(1 "Install Fresh Master Node"
-		 2 "Update Existing Master Node"
-		 3 "Install Cosmos"
-		 4 "Compile Windows Wallet"
+OPTIONS=(1 "Altbet"
+		 2 "Privix"
 		 0 "Exit Script"
 )
 
@@ -30,23 +28,15 @@ case $CHOICE in
 		exit	
 		;;
 
-        1)	# Fresh Install
-		cd Coins
-		bash MasternodeInstall.sh
-        ;; 
-
-		2)	# Update Node
-		cd Coins
-		bash MasternodeUpdate.sh
+        1)	# Altbet
+		cd ..
+		cd Coins/Altbet
+		bash WindowsCompile.sh
         ;;
 
-		3)	# Cosmos Install
-		cd Coins
-		bash CosmosInstall.sh
-        ;;
-
-		4)	# Compile Windows Wallet
-		cd Coins
-		bash CosmosInstall.sh
+		2)	# Privix
+		cd ..
+		cd Coins/Privix
+		bash WindowsCompile.sh
         ;;
 esac

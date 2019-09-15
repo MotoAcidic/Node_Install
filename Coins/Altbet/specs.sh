@@ -11,6 +11,7 @@ COIN_NAME='Altbet'
 REPO_NAME='abet'
 COIN_DAEMON='altbetd'
 COIN_CLI='altbet-cli'
+COIN_QT='altbet-qt'
 GITHUB=https://github.com/altbet/abet
 
 ########################################
