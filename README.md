@@ -65,7 +65,7 @@ All Supported projects can be found in the Documentation folder as well.
 **Have fun, this is crypto after all!**
 
 ```
-BTC  3LBktY7jpWGyuJHG2Gtbu5AWTiUrMC9wvk
+BTC  39jrS2CNyPxKiJJSwWF1UuvzH4d8SL33tt
 ```
 
 Feel free to use my reflink to signup and receive a bonus w/ vultr:

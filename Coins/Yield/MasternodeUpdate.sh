@@ -25,63 +25,38 @@
 # '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
 
 
-HEIGHT=15
-WIDTH=40
-CHOICE_HEIGHT=6
-BACKTITLE="Node Install Setup Wizard"
-TITLE="Node Install Setup"
-MENU="Choose one of the following coins to install:"
+###############
+# Colors Keys #
+###############
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
 
-OPTIONS=(1 "Install Fresh Master Node Already Supported"
-		 2 "Update Existing Master Node Already Supported"
-		 3 "Compile Windows Wallet Already Supported"
-		 4 "Compile a project from Github URL"
-		 5 "Install Crypto Pool"
-		 6 "Advanced Install"
+############################
+# Bring in the coins specs #
+############################
+source ./specs.sh
 
-		 0 "Exit Script"
-)
+####################
+# Update the Coin  #
+####################
+killall -9 $COIN_DAEMON
+cd
+cd $REPO_NAME
+git stash
+git pull
+cd
+sudo chmod -R 755 $REPO_NAME
+cd $REPO_NAME
+./autogen.sh
+./configure --disable-gui-tests --disable-shared --disable-tests --disable-bench --with-unsupported-ssl --with-libressl --with-gui=qt5
+make
+cd
 
+##################
+# Run the daemon #
+##################
+$DAEMON
 
-CHOICE=$(whiptail --clear\
-		--backtitle "$BACKTITLE" \
-                --title "$TITLE" \
-                --menu "$MENU" \
-                $HEIGHT $WIDTH $CHOICE_HEIGHT \
-                "${OPTIONS[@]}" \
-                2>&1 >/dev/tty)
-
-clear
-case $CHOICE in
-        0)  # Exit
-		exit	
-		;;
-
-        1)	# Fresh Install
-		bash MasternodeInstall.sh
-        ;; 
-
-		2)	# Update Node
-		bash MasternodeUpdate.sh
-        ;;
-		
-		3)	# Compile Windows Wallet
-		bash CompileWindows.sh
-        ;;
-
-		4)	# Compile From URL
-		cd
-		cd Node_Install/FromURL
-		bash FromURLpick.sh
-        ;;
-
-		5)	#Pool Install
-		cd
-		cd Node_Install/Pool/
-		bash install.sh
-        ;;
-
-		6)	#Advanced Install
-		bash AdvancedInstall.sh
-        ;;
-esac
+watch $CLI getinfo
