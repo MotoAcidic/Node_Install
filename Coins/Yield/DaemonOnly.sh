@@ -70,6 +70,9 @@ echo VPS Server prerequisites installed.
 # Compile the Coin #
 ####################
 cd
+cd Node_Install/Depends
+sudo bash LinuxDepends.sh
+cd
 git clone $GITHUB
 sudo chmod -R 755 $REPO_NAME
 cd $REPO_NAME

@@ -45,6 +45,8 @@ sudo apt-get install libssl1.0-dev -y
 sudo apt-get install -y autoconf g++ make openssl libssl-dev libcurl4-openssl-dev -y
 sudo apt-get install -y libcurl4-openssl-dev pkg-config -y
 sudo apt-get install -y libsasl2-dev -y
+sudo apt install libqt5svg5-dev -y
+sudo apt-get install -y libsodium-dev -y
 clear
 
 echo -e "Checking if swap space is needed."
