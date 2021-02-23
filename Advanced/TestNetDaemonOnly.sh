@@ -32,13 +32,11 @@ BACKTITLE="Node Install Setup Wizard"
 TITLE="Node Install Setup"
 MENU="Choose one of the following coins to install:"
 
-OPTIONS=(1 "Install Fresh Master Node Already Supported"
-		 2 "Update Existing Master Node Already Supported"
-		 3 "Compile Windows Wallet Already Supported"
-		 4 "Compile a project from Github URL"
-		 5 "Install Crypto Pool"
-		 6 "Advanced Install"
-
+OPTIONS=(1 "Altbet"
+		 2 "Privix"
+		 3 "Vault"
+		 4 "Beacon"
+         5 "Yield Staking"
 		 0 "Exit Script"
 )
 
@@ -57,31 +55,27 @@ case $CHOICE in
 		exit	
 		;;
 
-        1)	# Fresh Install
-		bash MasternodeInstall.sh
-        ;; 
-
-		2)	# Update Node
-		bash MasternodeUpdate.sh
-        ;;
-		
-		3)	# Compile Windows Wallet
-		bash CompileWindows.sh
-        ;;
-
-		4)	# Compile From URL
+        1)	# Altbet
 		cd
-		cd Node_Install/FromURL
-		bash FromURLpick.sh
+		cd Node_Install/Coins/Altbet
+		bash TestNetDaemonOnly.sh
         ;;
 
-		5)	#Pool Install
+		2)	# Privix
 		cd
-		cd Node_Install/Pool/
-		bash install.sh
+		cd Node_Install/Coins/Privix
+		bash TestNetDaemonOnly.sh
         ;;
 
-		6)	#Advanced Install
-		bash AdvancedInstall.sh
+		3)	# Vault
+		cd
+		cd Node_Install/Coins/Vault
+		bash TestNetDaemonOnly.sh
+        ;;
+
+		4)	# Beacon
+		cd
+		cd Node_Install/Coins/Beacon
+		bash TestNetDaemonOnly.sh
         ;;
 esac

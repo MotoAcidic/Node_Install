@@ -32,13 +32,8 @@ BACKTITLE="Node Install Setup Wizard"
 TITLE="Node Install Setup"
 MENU="Choose one of the following coins to install:"
 
-OPTIONS=(1 "Install Fresh Master Node Already Supported"
-		 2 "Update Existing Master Node Already Supported"
-		 3 "Compile Windows Wallet Already Supported"
-		 4 "Compile a project from Github URL"
-		 5 "Install Crypto Pool"
-		 6 "Advanced Install"
-
+OPTIONS=(1 "Main Net Linux Daemon Only 18.04"
+		 2 "Test Net Linux Daemon Only 18.04"
 		 0 "Exit Script"
 )
 
@@ -57,31 +52,15 @@ case $CHOICE in
 		exit	
 		;;
 
-        1)	# Fresh Install
-		bash MasternodeInstall.sh
-        ;; 
-
-		2)	# Update Node
-		bash MasternodeUpdate.sh
-        ;;
-		
-		3)	# Compile Windows Wallet
-		bash CompileWindows.sh
-        ;;
-
-		4)	# Compile From URL
+        1)	# Main Net Linux Daemon Only 18.04
 		cd
-		cd Node_Install/FromURL
-		bash FromURLpick.sh
+		cd Node_Install/Advanced
+		bash DaemonOnly.sh
         ;;
 
-		5)	#Pool Install
+		2)	# Test Net Linux Daemon Only 18.04
 		cd
-		cd Node_Install/Pool/
-		bash install.sh
-        ;;
-
-		6)	#Advanced Install
-		bash AdvancedInstall.sh
+		cd Node_Install/Advanced
+		bash TestNetDaemonOnly.sh
         ;;
 esac

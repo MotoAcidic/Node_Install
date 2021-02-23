@@ -49,6 +49,7 @@ source ./specs.sh
 ###################
 # Install Depends #
 ###################
+
 cd
 cd $DEPENDS_PATH
 bash LinuxDepends.sh
@@ -76,29 +77,6 @@ cd $REPO_NAME
 ./configure --disable-gui-tests --disable-shared --disable-tests --disable-bench --with-unsupported-ssl --with-libressl --with-gui=qt5
 make
 cd
-
-##############################
-# Masternode Genkey Creation #
-##############################
-  echo -e "Enter your ${RED}$COIN_NAME Masternode Private Key${NC}. Leave it blank to generate a new ${RED}Masternode Private Key${NC} for you:"
-  read -e COINKEY
-  if [[ -z "$COINKEY" ]]; then
-  $DAEMON -daemon
-  sleep 30
-  if [ -z "$(ps axo cmd:100 | grep $DAEMON)" ]; then
-   echo -e "${RED}$COIN_NAME server couldn not start. Check /var/log/syslog for errors.{$NC}"
-   exit 1
-  fi
-  COINKEY=$($CLI masternode genkey)
-  if [ "$?" -gt "0" ];
-    then
-    echo -e "${RED}Wallet not fully loaded. Let us wait and try again to generate the Private Key${NC}"
-    sleep 30
-    COINKEY=$($CLI masternode genkey)
-  fi
-  $CLI stop
-fi
-clear
 
 ##########################
 # Create the Config file #
@@ -138,11 +116,8 @@ cat << EOF > $COIN_PATH/$REPO_NAME.conf
  rpcallowip=127.0.0.1
  rpcbind=127.0.0.1
  maxconnections=24
- masternode=1
- masternodeprivkey=$COINKEY
  bind=$EXTIP
  externalip=$EXTIP
- masternodeaddr=$EXTIP:$COIN_PORT
  $ADDNODE
 
 EOF

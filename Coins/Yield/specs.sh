@@ -25,63 +25,37 @@
 # '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
 
 
-HEIGHT=15
-WIDTH=40
-CHOICE_HEIGHT=6
-BACKTITLE="Node Install Setup Wizard"
-TITLE="Node Install Setup"
-MENU="Choose one of the following coins to install:"
+########################################################################################################
+# COPY THIS FILE AND CHANGE ONLY THE SPECS BELOW FOR YOUR COIN                                         #
+# Must use exact repo name: Example github https://github.com/altbet/abet Example repo name: altbet    #
+########################################################################################################
 
-OPTIONS=(1 "Install Fresh Master Node Already Supported"
-		 2 "Update Existing Master Node Already Supported"
-		 3 "Compile Windows Wallet Already Supported"
-		 4 "Compile a project from Github URL"
-		 5 "Install Crypto Pool"
-		 6 "Advanced Install"
+RPC_PORT=51478
+COIN_PORT=51479
+COIN_NAME='YieldStakingWallet'
+REPO_NAME='pivx-gui'
+COIN_DAEMON='yswd'
+COIN_CLI='ysw-cli'
+COIN_QT='ysw-qt'
+GITHUB=https://github.com/MotoAcidic/pivx-gui
+ADDNODE='
+addnode = 104.207.142.105:51479
+addnode = 78.141.202.65:51479
+addnode = 45.32.93.62:51479
+addnode = 149.28.88.230:51479
+addnode = 104.156.253.86:51479
+'
 
-		 0 "Exit Script"
-)
+########################################
+# DO NOT CHANGE BELOW STATIC VARIABLES #
+########################################
 
+COIN_PATH=/root/.$REPO_NAME
+DAEMON=$REPO_NAME/src/$COIN_DAEMON
+CLI=$REPO_NAME/src/$COIN_CLI
 
-CHOICE=$(whiptail --clear\
-		--backtitle "$BACKTITLE" \
-                --title "$TITLE" \
-                --menu "$MENU" \
-                $HEIGHT $WIDTH $CHOICE_HEIGHT \
-                "${OPTIONS[@]}" \
-                2>&1 >/dev/tty)
-
-clear
-case $CHOICE in
-        0)  # Exit
-		exit	
-		;;
-
-        1)	# Fresh Install
-		bash MasternodeInstall.sh
-        ;; 
-
-		2)	# Update Node
-		bash MasternodeUpdate.sh
-        ;;
-		
-		3)	# Compile Windows Wallet
-		bash CompileWindows.sh
-        ;;
-
-		4)	# Compile From URL
-		cd
-		cd Node_Install/FromURL
-		bash FromURLpick.sh
-        ;;
-
-		5)	#Pool Install
-		cd
-		cd Node_Install/Pool/
-		bash install.sh
-        ;;
-
-		6)	#Advanced Install
-		bash AdvancedInstall.sh
-        ;;
-esac
+DEPENDS_PATH="Node_Install/Depends/"
+DEPENDS_SCRIPT="install.sh"
+EXTIP=`curl -s4 icanhazip.com`
+RPCUSER=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+RPCPASSWORD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)

@@ -28,17 +28,12 @@
 HEIGHT=15
 WIDTH=40
 CHOICE_HEIGHT=6
-BACKTITLE="Node Install Setup Wizard"
-TITLE="Node Install Setup"
-MENU="Choose one of the following coins to install:"
+BACKTITLE="WindowsCompile Wizard"
+TITLE="WindowsCompile Setup"
+MENU="Choose either 64bit or 32bit:"
 
-OPTIONS=(1 "Install Fresh Master Node Already Supported"
-		 2 "Update Existing Master Node Already Supported"
-		 3 "Compile Windows Wallet Already Supported"
-		 4 "Compile a project from Github URL"
-		 5 "Install Crypto Pool"
-		 6 "Advanced Install"
-
+OPTIONS=(1 "Windows 64"
+		 2 "Windows 32"
 		 0 "Exit Script"
 )
 
@@ -57,31 +52,95 @@ case $CHOICE in
 		exit	
 		;;
 
-        1)	# Fresh Install
-		bash MasternodeInstall.sh
-        ;; 
+        1)	# 64 Bit
+###############
+# Colors Keys #
+###############
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
 
-		2)	# Update Node
-		bash MasternodeUpdate.sh
-        ;;
-		
-		3)	# Compile Windows Wallet
-		bash CompileWindows.sh
+############################
+# Bring in the coins specs #
+############################
+source ./specs.sh
+
+###################
+# Install Depends #
+###################
+cd
+cd $DEPENDS_PATH
+bash WindowsDepends.sh
+clear
+echo VPS Server prerequisites installed.
+
+
+####################
+# Compile the Coin #
+####################
+cd
+git clone $GITHUB
+sudo chmod -R 755 $REPO_NAME
+cd $REPO_NAME
+cd depends
+make HOST=x86_64-w64-mingw32
+cd ..
+./autogen.sh
+CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/
+make
+cd src
+cd qt
+strip $COIN_QT.exe
+
+echo "Open up Winscp and connect to you vps that you compile this with. The location of the exe file is located 
+	  CoinCompiled/src/qt/    The exe file will be in the qt folder and has already been striped.
+	  If you need to install winscp you can get it here: https://winscp.net/eng/index.php"
         ;;
 
-		4)	# Compile From URL
-		cd
-		cd Node_Install/FromURL
-		bash FromURLpick.sh
-        ;;
+		2)	# 32 Bit
+###############
+# Colors Keys #
+###############
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
 
-		5)	#Pool Install
-		cd
-		cd Node_Install/Pool/
-		bash install.sh
-        ;;
+############################
+# Bring in the coins specs #
+############################
+source ./specs.sh
 
-		6)	#Advanced Install
-		bash AdvancedInstall.sh
+###################
+# Install Depends #
+###################
+cd
+cd $DEPENDS_PATH
+bash WindowsDepends.sh
+clear
+echo VPS Server prerequisites installed.
+
+
+####################
+# Compile the Coin #
+####################
+cd
+git clone $GITHUB
+sudo chmod -R 755 $REPO_NAME
+cd $REPO_NAME
+cd depends
+make HOST=i686-w64-mingw32
+cd ..
+./autogen.sh
+./configure LDFLAGS="-L`pwd`/db4/lib/" CPPFLAGS="-I`pwd`/db4/include/" --prefix=`pwd`/depends/i686-w64-mingw32
+make
+cd src
+cd qt
+strip $COIN_QT.exe
+
+echo "Open up Winscp and connect to you vps that you compile this with. The location of the exe file is located 
+	  CoinCompiled/src/qt/    The exe file will be in the qt folder and has already been striped.
+	  If you need to install winscp you can get it here: https://winscp.net/eng/index.php"
         ;;
 esac
