@@ -55,13 +55,13 @@ case $CHOICE in
         1)	# BTC Source
 		cd
         cd Node_Install/Coins/Pivx/v5_below/compile/
-        cd linux_or_win.sh
+        bash linux_or_win.sh
         ;; 
 
 		2)	# Dash Source
 		cd
         cd Node_Install/Coins/Pivx/v5_higher/compile/
-        cd linux_or_win.sh
+        bash linux_or_win.sh
         ;; 
 
 esac
