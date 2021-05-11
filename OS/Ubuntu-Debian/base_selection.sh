@@ -55,15 +55,21 @@ case $CHOICE in
 		;;
 
         1)	# BTC Source
-		bash MasternodeInstall.sh
+		cd
+		cd Node_Install/Coins/BTC/
+		bash version.sh
         ;; 
 
 		2)	# Dash Source
-		bash MasternodeUpdate.sh
+		cd
+		cd Node_Install/Coins/Dash/
+		bash version.sh
         ;;
 		
 		3)	# Pivx Source
-		bash CompileWindows.sh
+		cd
+		cd Node_Install/Coins/Pivx/
+		bash version.sh
         ;;
 
 		5)	#Pool Install
