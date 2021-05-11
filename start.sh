@@ -27,8 +27,8 @@
 # Check for supported OS to run the install
 if [ -n "$(. /etc/os-release; echo $NAME | grep -i Ubuntu)" -o -n "$(. /etc/os-release; echo $NAME | grep -i Debian)" ]; then
 # OS is supported so we go to the menu selection.
-cd Scripts/OS/Ubuntu-Debian/
-bash install.sh
+cd OS/Ubuntu-Debian/
+bash base_selection.sh
 else
 
 HEIGHT=15
