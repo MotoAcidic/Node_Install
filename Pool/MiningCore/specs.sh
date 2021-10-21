@@ -31,6 +31,6 @@
 ########################################################################################################
 
 REPO_NAME='miningcore'
-MININGCORE=https://github.com/akshaynexus/miningcore
-WEBUI=https://github.com/minernl/Miningcore.WebUI
+MININGCORE=https://github.com/coinfoundry/miningcore
+WEBUI=https://github.com/CoinPoolServices/alphaxcore-WebUI
 DEPENDS_PATH="Node_Install/Depends/"

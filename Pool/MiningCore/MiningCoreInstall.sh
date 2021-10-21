@@ -52,9 +52,9 @@ source ./specs.sh
 
 	cd
 	git clone $WEBUI
-	sudo mv -v ~/MiningCore.WebUI/* /var/www/html/
+	sudo mv -v ~/alphaxcore-WebUI/* /var/www/html/
 	cd
-	sudo rm -rf Miningcore.WebUI
+	sudo rm -rf alphaxcore-WebUI
 
 	#################################################
 	# Move to pool user dir and clone main service  #
